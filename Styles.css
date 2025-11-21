@@ -1,0 +1,248 @@
+/* General Reset and Body Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-bottom: 2px solid #007bff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #007bff;
+}
+
+header p {
+    font-style: italic;
+    color: #666;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #007bff;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: #0056b3;
+}
+
+/* Highlight active page (add class="active" to the current nav link in HTML if needed, or use JS) */
+nav a.active {
+    background-color: #0056b3;
+    border-bottom: 2px solid #fff;
+}
+
+/* Main Content Styles */
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+article {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+article h2 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+article small {
+    color: #666;
+    display: block;
+    margin-bottom: 10px;
+}
+
+article img {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+article p {
+    margin-bottom: 15px;
+}
+
+article a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+article a:hover {
+    text-decoration: underline;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+/* Sidebar Styles */
+aside {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+aside h3, aside h4 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+aside ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+aside li {
+    margin-bottom: 8px;
+}
+
+aside a {
+    color: #333;
+    text-decoration: none;
+}
+
+aside a:hover {
+    color: #007bff;
+}
+
+aside div {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 20px;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+footer li {
+    margin: 0 10px;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Back to Top Link */
+body > a {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+body > a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    main {
+        flex-direction: row;
+    }
+    
+    aside {
+        flex: 0 0 300px;
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    nav li {
+        margin: 5px 0;
+    }
+    
+    section {
+        grid-template-columns: 1fr;
+    }
+}
