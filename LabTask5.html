@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Sadia Sultana">
+    <meta name="description" content="Personal portfolio of Sadia Sultana - Computer Science Student">
+    <meta name="keywords" content="Portfolio, Student, Webpage, AIUB, Computer Science">
+    <title>Sadia Sultana - Portfolio</title>
+
+    <style>
+    body {
+        background-color: #f5f5f5; /* page background */
+        font-family: Arial, sans-serif;
+    }
+
+    /* Center the form section */
+    #contact {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    /* Style the form box */
+    form {
+        background-color: #ffffff;   /* form background color */
+        padding: 20px;
+        width: 350px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    }
+
+    button {
+        padding: 8px 15px;
+        border: none;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    /* Center the educational table box */
+#education {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#education table {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    width:auto;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+:root{  --nav-color: #48b8ff; } /* change this to any color */
+
+  header {
+    padding: 18px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+   header {
+        border-bottom: 4px solid #48b8ff; /* sky blue */
+        padding: 18px;
+        background: #f9f9f9;
+    }
+
+  header h1 { margin: 0; font-size: 1.4rem; }
+
+  header nav {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  /* style each nav link with a bold colored border */
+  header nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: #222;
+    font-weight: 700;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 4px solid transparent; /* thick border space */
+    transition: all 0.18s ease;
+  }
+
+  /* active/current link: show the accent border */
+  header nav a.active {
+    border-color: var(--accent);
+    background: rgba(0,0,0,0.03);
+  }
+
+  /* hover effect */
+  header nav a:hover {
+    border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+    transform: translateY(-2px);
+  }
+  body {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+    <h1>Sadia Sultana</h1>
+    <nav>
+        <a href="#bio">About</a> |
+        <a href="#education">Education</a> |
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+<section id="bio">
+    <h2>About Me</h2>
+    <p>Hello! I’m Sadia Sultana, a Computer Science student passionate about AI, research, and developing innovative solutions that improve everyday life. I enjoy solving problems, exploring new technologies, and turning ideas into meaningful projects..</p>
+</section>
+
+<section id="education">
+    <h2>Educational Qualifications</h2>
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Level</th>
+            <th>Institution</th>
+            <th>Year</th>
+        </tr>
+
+        <tr>
+            <td>SSC</td>
+            <td>Raitola IMP High School</td>
+            <td>2018</td>
+        </tr>
+
+        <tr>
+            <td>HSC</td>
+            <td>Brahmanbaria Women Govt College</td>
+            <td>2020</td>
+        </tr>
+
+        <tr>
+            <td>Bsc (CSE)</td>
+            <td>American International University Bangladesh (AIUB)</td>
+            <td>Ongoing</td>
+        </tr>
+
+    </table>
+</section>
+
+<section id="contact">
+    <h2>Contact Me</h2>
+    <form>
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Message:</label><br>
+        <textarea name="msg" rows="4" required></textarea><br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</section>
+
+</main>
+
+<footer>
+    <p>© 2025 Sadia Sultana | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donation Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+         h1 {
+        text-align: center; /* Center heading */
+        background-color: skyblue; /* Sky blue header */
+        padding: 15px;
+        border-radius: 5px;
+         }
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            margin-top: 20px;
+        padding: 10px 20px;
+        cursor: pointer; /* Pointer on hover */
+        transition: background-color 0.3s;
+        }
+         button:hover {
+        background-color: #87ceeb; /* Sky blue on hover */
+        color :black;
+         }
+         .inline-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 2px; /* space between checkbox and text */
+        margin-top: 10px;
+        
+         }
+     /* Form container styling */
+    form {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;          /* Inner space */
+        border: 2px solid skyblue; /* Border color */
+        border-radius: 10px;    /* Rounded corners */
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+        background-color: #f9f9f9; /* Light background inside border */
+    }
+     
+
+    label {
+        display: block;
+        margin-top: 10px;
+    }
+
+    input, select, textarea {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #87ceeb; /* Sky blue on hover */
+        color: black;
+    }
+    </style>
+</head>
+<body>
+    <h1>Donation Form</h1>
+    <form id="donationForm" onsubmit="return validateForm()">
+        <label for="first_name">First Name *</label>
+        <input type="text" id="first_name" name="first_name" required>
+
+        <label for="last_name">Last Name *</label>
+        <input type="text" id="last_name" name="last_name" required>
+
+        <label for="email">Email *</label>
+        <input type="email" id="email" name="email" required>
+
+        <label>Donation Amount *</label>
+        <input type="radio" name="amount" value="10" checked> $10
+        <input type="radio" name="amount" value="25"> $25
+        <input type="radio" name="amount" value="50"> $50
+        <input type="radio" name="amount" value="Other"> Other
+        <input type="number" id="other_amount" name="other_amount" class="hidden" placeholder="Enter amount">
+
+       <div class="inline-checkbox">
+    <input type="checkbox" id="recurring" name="recurring">
+    <label for="recurring">I am interested in giving on a regular basis</label>
+</div>
+
+<!-- Recurring Fields below checkbox -->
+<div class="recurring-fields hidden">
+    <label for="monthly_amount">Monthly Amount</label>
+    <input type="number" id="monthly_amount" name="monthly_amount">
+
+    <label for="months">Number of Months</label>
+    <input type="number" id="months" name="months">
+</div>
+
+        <label for="state">State</label>
+        <select id="state" name="state">
+            <option value="Dhaka">Dhaka</option>
+            <option value="Chittagong">Chittagong</option>
+            <option value="Khulna">Khulna</option>
+        </select>
+
+        <label for="country">Country</label>
+        <select id="country" name="country">
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+        </select>
+
+        <label for="password">Password (if needed)</label>
+        <input type="password" id="password" name="password">
+
+        <label for="confirm_password">Confirm Password</label>
+        <input type="password" id="confirm_password" name="confirm_password">
+
+        <label>Acknowledge Donation to</label>
+        <input type="radio" name="donation_radio" id="none" value="none" checked> None
+        <input type="radio" name="donation_radio" id="to_honor" value="to_honor"> To Honor
+        <input type="radio" name="donation_radio" id="in_memory_of" value="in_memory_of"> In Memory Of
+        <input type="text" id="name" name="name" class="hidden" placeholder="Name">
+
+        <label for="comments">Comments</label>
+        <textarea id="comments" name="comments" rows="4"></textarea>
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+
+    <script>
+        // Feature 1: Form Validation
+        function validateForm() {
+            const firstName = document.getElementById("first_name").value;
+            const lastName = document.getElementById("last_name").value;
+            const email = document.getElementById("email").value;
+            const donationAmount = document.querySelector('input[name="amount"]:checked');
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
+
+            if (!firstName || !lastName || !email || !donationAmount) {
+                alert("Please fill in all required fields.");
+                return false;
+            }
+
+            // Feature 2: Email Validation
+            if (!validateEmail(email)) {
+                alert("Please enter a valid email address.");
+                return false;
+            }
+
+            // Feature 6: Confirm Password (if password is provided)
+            if (password && !validatePassword()) {
+                return false;
+            }
+
+            return true;
+        }
+
+        // Email Validation Function
+        function validateEmail(email) {
+            const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+            return regex.test(email);
+        }
+
+        // Feature 6: Confirm Password Field
+        function validatePassword() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirm_password").value;
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+            return true;
+        }
+
+        // Feature 3: Donation Amount Check
+        document.querySelectorAll('input[name="amount"]').forEach((radioButton) => {
+            radioButton.addEventListener('change', function() {
+                const otherAmountField = document.getElementById('other_amount');
+                if (this.value === 'Other') {
+                    otherAmountField.classList.remove('hidden');
+                } else {
+                    otherAmountField.classList.add('hidden');
+                }
+            });
+        });
+
+        // Feature 4: Recurring Donation Fields
+        document.querySelector('input[name="recurring"]').addEventListener('change', function() {
+            const recurringFields = document.querySelector('.recurring-fields');
+            if (this.checked) {
+                recurringFields.classList.remove('hidden');
+            } else {
+                recurringFields.classList.add('hidden');
+            }
+        });
+
+        // Feature 5: Select State and Country Default Options
+        window.onload = function() {
+            document.querySelector('select[name="state"]').value = "Dhaka";
+            document.querySelector('select[name="country"]').value = "Bangladesh";
+        };
+
+        // Feature 7: Reset Button Logic
+        const resetButton = document.querySelector('button[type="reset"]');
+        resetButton.addEventListener('click', function(event) {
+            const confirmation = confirm("Are you sure you want to reset the form?");
+            if (!confirmation) {
+                event.preventDefault();
+            }
+        });
+
+        // Feature 8: Show/Hide Additional Fields
+        document.querySelectorAll('input[name="donation_radio"]').forEach((radioButton) => {
+            radioButton.addEventListener('change', function() {
+                const nameField = document.getElementById('name');
+                if (this.id === 'to_honor' || this.id === 'in_memory_of') {
+                    nameField.classList.remove('hidden');
+                    nameField.placeholder = this.id === 'to_honor' ? "Name to honor" : "Name in memory of";
+                } else {
+                    nameField.classList.add('hidden');
+                }
+            });
+        });
+
+        // Feature 9: Character Limit on Comments
+        document.getElementById("comments").addEventListener('input', function() {
+            const charLimit = 200;
+            const currentLength = this.value.length;
+            if (currentLength > charLimit) {
+                alert("Character limit reached!");
+                this.value = this.value.substring(0, charLimit);
+            }
+        });
+
+        // Feature 10: Calculate Recurring Donation Total
+        function updateTotal() {
+            const monthlyAmount = parseFloat(document.querySelector('input[name="monthly_amount"]').value) || 0;
+            const months = parseInt(document.querySelector('input[name="months"]').value) || 0;
+            const total = monthlyAmount * months;
+
+            let totalElement = document.getElementById('total-display');
+            if (!totalElement) {
+                totalElement = document.createElement('p');
+                totalElement.id = 'total-display';
+                document.querySelector('.recurring-fields').appendChild(totalElement);
+            }
+            totalElement.textContent = `Total donation for ${months} months: $${total}`;
+        }
+
+        document.querySelector('input[name="monthly_amount"]').addEventListener('input', updateTotal);
+        document.querySelector('input[name="months"]').addEventListener('input', updateTotal);
+    </script>
+</body>
+</html>
