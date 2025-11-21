@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News Portal Layout</title>
+
+    <style>
+        /* Container to hold all 3 sections */
+        .container {
+            width: 100%;
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        /* Common box styling */
+        .sidebar, .main-content, .ads {
+            display: inline-block;
+            vertical-align: top;
+            padding: 20px;
+            margin: 5px;
+            border: 2px solid #333;
+            border-radius: 6px;
+            box-sizing: border-box;
+        }
+
+        /* Individual widths and backgrounds */
+        .sidebar {
+            width: 20%;
+            background-color: #e6f2ff; /* light blue */
+        }
+
+        .main-content {
+            width: 60%;
+            background-color: #fff5e6; /* light orange */
+        }
+
+        .ads {
+            width: 20%;
+            background-color: #ffe6e6; /* light red */
+        }
+    </style>
+
+</head>
+<body>
+
+    <h1 style="text-align:center; margin-bottom:20px;">News Portal Layout</h1>
+
+    <div class="container">
+
+        <div class="sidebar">
+            <h2>Categories</h2>
+            <p>World News, Sports, Tech</p>
+        </div>
+
+        <div class="main-content">
+            <h2>Main Articles</h2>
+            <p>This area displays the main articles of the news portal.</p>
+        </div>
+
+        <div class="ads">
+            <h2>Advertisements</h2>
+            <p>Your ad could be here!</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
